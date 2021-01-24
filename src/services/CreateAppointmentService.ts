@@ -13,7 +13,6 @@ class CreateAppointmentService{
   public async execute({provider, date}: Request) : Promise<Appointment> {
     const appointmentsRepository = getCustomRepository(AppointmentsRepository);
     const appointmentDate = startOfHour(date);
-    console.log(appointmentDate);
     const findAppointmentInsSamedate = await appointmentsRepository.findByDate(appointmentDate);
 
     if (findAppointmentInsSamedate) {
