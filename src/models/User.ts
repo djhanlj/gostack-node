@@ -4,16 +4,16 @@ import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 class User
 {
   @PrimaryGeneratedColumn('uuid')
-  id: String;
+  id: string;
 
   @Column()
-  name: String;
+  name: string;
 
   @Column()
-  email: String;
+  email: string;
 
   @Column()
-  password: String;
+  password: string;
 
   @CreateDateColumn()
   created_at:Date;
