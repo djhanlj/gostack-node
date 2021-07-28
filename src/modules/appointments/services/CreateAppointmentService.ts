@@ -4,7 +4,6 @@ import { getCustomRepository } from 'typeorm';
 import AppError from '@shared/errors/AppError';
 import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/ApointmentsRepositories'
 import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
-import User from '@modules/users/infra/typeorm/entities/User';
 
 interface Request {
   provider_id: string;
@@ -22,11 +21,10 @@ class CreateAppointmentService{
       throw new AppError('This appointment is already booked');
     }
 
-    const appointment = appointmentsRepository.create({
+    const appointment = await appointmentsRepository.create({
       provider_id,
       date:appointmentDate
     });
-    await appointmentsRepository.save(appointment);
 
     return appointment;
   }

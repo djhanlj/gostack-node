@@ -26,6 +26,7 @@ sessionsRouter.post('/', async (request, response) => {
 
     return response.json({ user: userWithoutPassword, token });
   } catch (err) {
+    console.log("motivo do erro ", err.message);
     return response.status(err.statusCode).json({ error: err.message });
   }
 });
