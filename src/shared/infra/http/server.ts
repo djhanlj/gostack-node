@@ -1,10 +1,10 @@
 import express, { request, response } from 'express';
-import routes from './routes';
-import uploadConfig from './config/upload';
+import routes from '@shared/infra/http/routes';
+import uploadConfig from '@config/upload';
 import cors from 'cors';
 
 import 'reflect-metadata'
-import './database'
+import '@shared/infra/typeorm'
 
 const app = express();
 
